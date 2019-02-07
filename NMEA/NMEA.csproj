@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{633F0F3E-5F67-4452-A537-7268C2EAF3FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NMEA</RootNamespace>
+    <AssemblyName>NMEA</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AAM.cs" />
+    <Compile Include="ALM.cs" />
+    <Compile Include="APB.cs" />
+    <Compile Include="BEC.cs" />
+    <Compile Include="BOD.cs" />
+    <Compile Include="BWC.cs" />
+    <Compile Include="BWR.cs" />
+    <Compile Include="BWW.cs" />
+    <Compile Include="Coordinate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBT.cs" />
+    <Compile Include="DCN.cs" />
+    <Compile Include="DPT.cs" />
+    <Compile Include="FSI.cs" />
+    <Compile Include="GDA.cs" />
+    <Compile Include="GDF.cs" />
+    <Compile Include="GDP.cs" />
+    <Compile Include="GGA.cs" />
+    <Compile Include="GLA.cs" />
+    <Compile Include="GLC.cs" />
+    <Compile Include="GLF.cs" />
+    <Compile Include="GLL.cs" />
+    <Compile Include="GLP.cs" />
+    <Compile Include="GOA.cs" />
+    <Compile Include="GOF.cs" />
+    <Compile Include="GOP.cs" />
+    <Compile Include="GSA.cs" />
+    <Compile Include="GSV.cs" />
+    <Compile Include="GTD.cs" />
+    <Compile Include="GXA.cs" />
+    <Compile Include="GXF.cs" />
+    <Compile Include="GXP.cs" />
+    <Compile Include="HCC.cs" />
+    <Compile Include="HDG.cs" />
+    <Compile Include="HDM.cs" />
+    <Compile Include="HDT.cs" />
+    <Compile Include="HSC.cs" />
+    <Compile Include="HVD.cs" />
+    <Compile Include="HVM.cs" />
+    <Compile Include="IMA.cs" />
+    <Compile Include="LCD.cs" />
+    <Compile Include="LoranTimeDifference.cs" />
+    <Compile Include="MHU.cs" />
+    <Compile Include="MTA.cs" />
+    <Compile Include="MTW.cs" />
+    <Compile Include="MWD.cs" />
+    <Compile Include="MWV.cs" />
+    <Compile Include="NMEA.cs" />
+    <Compile Include="OLN.cs" />
+    <Compile Include="OmegaPair.cs" />
+    <Compile Include="OSD.cs" />
+    <Compile Include="P.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadarData.cs" />
+    <Compile Include="RatioAndPulse.cs" />
+    <Compile Include="Response.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RMA.cs" />
+    <Compile Include="RMB.cs" />
+    <Compile Include="RMC.cs" />
+    <Compile Include="RMM.cs" />
+    <Compile Include="ROT.cs" />
+    <Compile Include="RPM.cs" />
+    <Compile Include="RSA.cs" />
+    <Compile Include="RSD.cs" />
+    <Compile Include="RTE.cs" />
+    <Compile Include="SatelliteData.cs" />
+    <Compile Include="Sentence.cs" />
+    <Compile Include="SFI.cs" />
+    <Compile Include="STN.cs" />
+    <Compile Include="TEP.cs" />
+    <Compile Include="TRF.cs" />
+    <Compile Include="TTM.cs" />
+    <Compile Include="VBW.cs" />
+    <Compile Include="VDR.cs" />
+    <Compile Include="VHW.cs" />
+    <Compile Include="VLW.cs" />
+    <Compile Include="VPW.cs" />
+    <Compile Include="VTG.cs" />
+    <Compile Include="VWE.cs" />
+    <Compile Include="VWR.cs" />
+    <Compile Include="VWT.cs" />
+    <Compile Include="WaypointLocation.cs" />
+    <Compile Include="WCV.cs" />
+    <Compile Include="WDC.cs" />
+    <Compile Include="WDR.cs" />
+    <Compile Include="WNC.cs" />
+    <Compile Include="WPL.cs" />
+    <Compile Include="XDR.cs" />
+    <Compile Include="XTE.cs" />
+    <Compile Include="XTR.cs" />
+    <Compile Include="ZDA.cs" />
+    <Compile Include="ZFI.cs" />
+    <Compile Include="ZFO.cs" />
+    <Compile Include="ZLZ.cs" />
+    <Compile Include="ZPI.cs" />
+    <Compile Include="ZTA.cs" />
+    <Compile Include="ZTE.cs" />
+    <Compile Include="ZTG.cs" />
+    <Compile Include="ZTI.cs" />
+    <Compile Include="ZWP.cs" />
+    <Compile Include="ZZU.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
