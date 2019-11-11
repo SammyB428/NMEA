@@ -45,22 +45,18 @@ namespace NMEA
       public System.DateTime TimeRemaining;
       public string To;
 
-      public ZTG()
+      public ZTG() : base("ZTG")
       {
-         UTCTime = new System.DateTime(1980, 1, 6);
-         TimeRemaining = UTCTime;
-         Mnemonic = "ZTG";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
-         TimeRemaining = UTCTime;
-         To = "";
-
-         Mnemonic = "ZTG";
+         UTCTime = Response.GPSEpoch;
+         TimeRemaining = Response.GPSEpoch;
+         To = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -83,9 +79,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

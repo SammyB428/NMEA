@@ -47,10 +47,9 @@ namespace NMEA
       public string WindSpeedUnits;
       public Boolean IsDataValid;
 
-      public MWV()
+      public MWV() : base("MWV")
       {
-         Mnemonic = "MWV";
-         IsDataValid = Boolean.Unknown;
+         Empty();
       }
 
       public override void Empty()
@@ -58,12 +57,10 @@ namespace NMEA
          base.Empty();
 
          WindAngle = 0.0D;
-         Reference = "";
+         Reference = string.Empty;
          WindSpeed = 0.0D;
-         WindSpeedUnits = "";
+         WindSpeedUnits = string.Empty;
          IsDataValid = Boolean.Unknown;
-
-         Mnemonic = "MWV";
       }
 
       public override bool Parse(Sentence sentence)
@@ -88,9 +85,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

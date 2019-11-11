@@ -45,13 +45,12 @@ namespace NMEA
       public OmegaPair Pair2;
       public OmegaPair Pair3;
 
-      public OLN()
+      public OLN() : base("OLN")
       {
          Pair1 = new OmegaPair();
          Pair2 = new OmegaPair();
          Pair3 = new OmegaPair();
-
-         Mnemonic = "OLN";
+         Empty();
       }
 
       public override void Empty()
@@ -61,8 +60,6 @@ namespace NMEA
          Pair1.Empty();
          Pair2.Empty();
          Pair3.Empty();
-
-         Mnemonic = "OLN";
       }
 
       public override bool Parse(Sentence sentence)

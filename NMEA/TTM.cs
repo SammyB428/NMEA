@@ -52,12 +52,12 @@ namespace NMEA
       public double NumberOfMinutesToClosestPointOfApproach;
       public string Increasing;
       public string TargetName;
-      public NMEA.TargetStatus TargetStatus;
+      public TargetStatus TargetStatus;
       public string ReferenceTarget;
 
-      public TTM()
+      public TTM() : base("TTM")
       {
-         Mnemonic = "TTM";
+         Empty();
       }
 
       public override void Empty()
@@ -67,17 +67,15 @@ namespace NMEA
          TargetNumber = 0;
          TargetDistance = 0.0;
          BearingFromOwnShip = 0.0;
-         BearingUnits = "";
+         BearingUnits = string.Empty;
          TargetSpeed = 0.0;
          TargetCourse = 0.0;
-         TargetCourseUnits = "";
+         TargetCourseUnits = string.Empty;
          DistanceOfClosestPointOfApproach = 0.0;
          NumberOfMinutesToClosestPointOfApproach = 0.0;
-         Increasing = "";
-         TargetName = "";
+         Increasing = string.Empty;
+         TargetName = string.Empty;
          TargetStatus = TargetStatus.Unknown;
-
-         Mnemonic = "TTM";
       }
 
       public override bool Parse(Sentence sentence)

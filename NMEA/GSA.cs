@@ -63,10 +63,10 @@ namespace NMEA
       public double HorizontalDilutionOfPrecision; // aka HDOP
       public double VerticalDilutionOfPrecision; // aka VDOP;
 
-      public GSA()
+      public GSA() : base("GSA")
       {
          Satellites = new int[12];
-         Mnemonic = "GSA";
+         Empty();
       }
 
       public override void Empty()
@@ -83,8 +83,6 @@ namespace NMEA
          {
             Satellites[index] = 0;
          }
-
-         Mnemonic = "GSA";
       }
 
       public override bool Parse(Sentence sentence)
@@ -121,9 +119,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

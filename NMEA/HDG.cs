@@ -47,9 +47,9 @@ namespace NMEA
       public double MagneticVariationDegrees;
       public NMEA.EastOrWest MagneticVariationDirection;
 
-      public HDG()
+      public HDG() : base("HDG")
       {
-         Mnemonic = "HDG";
+         Empty();
       }
 
       public override void Empty()
@@ -61,8 +61,6 @@ namespace NMEA
          MagneticDeviationDirection = EastOrWest.Unknown;
          MagneticVariationDegrees = 0.0D;
          MagneticVariationDirection = EastOrWest.Unknown;
-
-         Mnemonic = "HDG";
       }
 
       public override bool Parse(Sentence sentence)
@@ -87,9 +85,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

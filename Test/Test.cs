@@ -95,7 +95,7 @@ namespace Test
             return( null );
          }
 
-         string[] return_value = new string[number_of_elements];
+         var return_value = new string[number_of_elements];
 
          return_value[0] = RotateOnePlace(string_parameter);
 
@@ -114,13 +114,13 @@ namespace Test
       {
          int index = 0;
 
-         TimeSpan minimum_spacing = new TimeSpan(0, 0, 30); // 30 seconds
+         var minimum_spacing = new TimeSpan(0, 0, 30); // 30 seconds
 
          while (index < args.Length)
          {
-            using (System.IO.StreamReader reader = System.IO.File.OpenText(args[index]))
+            using (var reader = System.IO.File.OpenText(args[index]))
             {
-               using (System.IO.TextWriter kml = new System.IO.StreamWriter(args[index] + ".kml"))
+               using (var kml = new System.IO.StreamWriter(args[index] + ".kml"))
                {
                   kml.WriteLine( "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" );
                   kml.WriteLine( "<kml xmlns=\"http://earth.google.com/kml/2.2\">" );
@@ -132,7 +132,7 @@ namespace Test
                   kml.WriteLine("   <PolyStyle><color>7f00ff00</color></PolyStyle>");
                   kml.WriteLine("  </Style>");
 
-                  StringBuilder wall = new StringBuilder(4096);
+                  var wall = new StringBuilder(4096);
 
                   wall.Append("   <Placemark>\r\n");
                   wall.Append("    <styleUrl>#wall</styleUrl>\r\n");
@@ -142,13 +142,13 @@ namespace Test
                   wall.Append("     <altitudeMode>absolute</altitudeMode>\r\n");
                   wall.Append("     <coordinates>\r\n");
 
-                  NMEA.Parser p = new NMEA.Parser();
+                  var p = new NMEA.Parser();
 
-                  RMC rmc = (RMC)p.GetResponse("RMC");
-                  GGA gga = (GGA)p.GetResponse("GGA");
-                  VTG vtg = (VTG)p.GetResponse("VTG");
+                  var rmc = (RMC)p.GetResponse("RMC");
+                  var gga = (GGA)p.GetResponse("GGA");
+                  var vtg = (VTG)p.GetResponse("VTG");
 
-                  TimeZoneInfo est_timezone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                  var est_timezone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
 
                   string input_string = null;
 
@@ -159,7 +159,7 @@ namespace Test
                   double last_speed = 0.0D;
 
                   DateTime output_time;
-                  DateTime last_output_time = new DateTime(1980, 1, 6);
+                  var last_output_time = new DateTime(1980, 1, 6);
                   TimeSpan interval;
 
                   while ((input_string = reader.ReadLine()) != null)
@@ -180,7 +180,7 @@ namespace Test
                               int mph = (int)(last_speed * 1.15077945D);
 
                               // Add the day of the week to the time string, localze the time format.
-                              DateTime est_time = TimeZoneInfo.ConvertTimeFromUtc(output_time, est_timezone);
+                              var est_time = TimeZoneInfo.ConvertTimeFromUtc(output_time, est_timezone);
 
                               kml.Write(est_time.ToString() + ", " + mph.ToString("N0") + "MPH, " + feet.ToString("N0") + " feet");
                               kml.WriteLine("</description>\r\n   <styleUrl>#s1</styleUrl>");
@@ -194,7 +194,7 @@ namespace Test
                               kml.WriteLine("   <Point>\r\n    <extrude>1</extrude>\r\n    <altitudeMode>relativeToGround</altitudeMode>");
                               kml.Write("    <coordinates>");
 
-                              string output = gga.Position.Longitude.Decimal().ToString();
+                              var output = gga.Position.Longitude.Decimal().ToString();
 
                               output += "," + gga.Position.Latitude.Decimal().ToString();
                               output += "," + gga.AntennaAltitudeMeters.ToString();

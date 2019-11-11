@@ -43,18 +43,16 @@ namespace NMEA
    {
       public string Datum;
 
-      public RMM()
+      public RMM() : base("RMM")
       {
-         Mnemonic = "RMM";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         Datum = "";
-
-         Mnemonic = "RMM";
+         Datum = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)

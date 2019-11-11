@@ -49,26 +49,24 @@ namespace NMEA
       public LatLong Position;
       public FAAModeIndicator FAAMode;
 
-      public BWR()
+      public BWR() : base("BWR")
       {
-         UTCTime = new System.DateTime(1980, 1, 6);
          Position = new LatLong();
-         Mnemonic = "BWR";
+
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          Position.Empty();
          BearingTrue = 0.0D;
          BearingMagnetic = 0.0D;
          DistanceNauticalMiles = 0.0D;
-         To = "";
+         To = string.Empty;
          FAAMode = FAAModeIndicator.Unknown;
-
-         Mnemonic = "BWR";
       }
 
       public override bool Parse(Sentence sentence)
@@ -100,9 +98,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

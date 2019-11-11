@@ -41,16 +41,14 @@ namespace NMEA
 {
    public class GDA : WayPointLocation
    {
-      public GDA()
+      public GDA() : base("GDA")
       {
-         Mnemonic = "GDA";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
-
-         Mnemonic = "GDA";
       }
    }
 }

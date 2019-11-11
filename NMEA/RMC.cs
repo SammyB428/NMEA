@@ -42,34 +42,31 @@ namespace NMEA
    public class RMC : Response
    {
       public System.DateTime UTCTime;
-      public NMEA.Boolean IsDataValid;
-      public NMEA.LatLong Position;
-      public NMEA.FAAModeIndicator Mode;
+      public Boolean IsDataValid;
+      public LatLong Position;
+      public FAAModeIndicator Mode;
       public double SpeedOverGroundKnots;
       public double TrackMadeGoodDegreesTrue;
       public double MagneticVariation;
-      public NMEA.EastOrWest MagneticVariationDirection;
+      public EastOrWest MagneticVariationDirection;
 
-      public RMC()
+      public RMC() : base("RMC")
       {
-         UTCTime = new System.DateTime();
          Position = new LatLong();
-         Mnemonic = "RMC";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          IsDataValid = NMEA.Boolean.Unknown;
          Position.Empty();
          Mode = FAAModeIndicator.Unknown;
          SpeedOverGroundKnots = 0.0D;
          TrackMadeGoodDegreesTrue = 0.0D;
-         MagneticVariationDirection = NMEA.EastOrWest.Unknown;
-
-         Mnemonic = "RMC";
+         MagneticVariationDirection = EastOrWest.Unknown;
       }
 
       public override bool Parse(Sentence sentence)

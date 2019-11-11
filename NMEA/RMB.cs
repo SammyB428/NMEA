@@ -41,22 +41,22 @@ namespace NMEA
 {
    public class RMB : Response
    {
-      public NMEA.Boolean IsDataValid;
+      public Boolean IsDataValid;
       public double CrossTrackError;
-      public NMEA.LeftOrRight DirectionToSteer;
+      public LeftOrRight DirectionToSteer;
       public string To;
       public string From;
-      public NMEA.LatLong DestinationPosition;
+      public LatLong DestinationPosition;
       public double RangeToDestinationNauticalMiles;
       public double BearingToDestinationDegreesTrue;
       public double DestinationClosingVelocityKnots;
       public Boolean IsArrivalCircleEntered;
       public FAAModeIndicator Mode;
 
-      public RMB()
+      public RMB() : base("RMB")
       {
          DestinationPosition = new LatLong();
-         Mnemonic = "RMB";
+         Empty();
       }
 
       public override void Empty()
@@ -66,16 +66,14 @@ namespace NMEA
          IsDataValid = Boolean.Unknown;
          CrossTrackError = 0.0D;
          DirectionToSteer = LeftOrRight.Unknown;
-         To = "";
-         From = "";
+         To = string.Empty;
+         From = string.Empty;
          DestinationPosition.Empty();
          RangeToDestinationNauticalMiles = 0.0D;
          BearingToDestinationDegreesTrue = 0.0D;
          DestinationClosingVelocityKnots = 0.0D;
          IsArrivalCircleEntered = Boolean.Unknown;
          Mode = NMEA.FAAModeIndicator.Unknown;
-
-         Mnemonic = "RMB";
       }
 
       public override bool Parse(Sentence sentence)
@@ -108,9 +106,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

@@ -47,9 +47,9 @@ namespace NMEA
       public double CalculatedWindSpeedMetersPerSecond;
       public double CalculatedWindSpeedKilometersPerHour;
 
-      public VWT()
+      public VWT() : base("VWT")
       {
-         Mnemonic = "VWT";
+         Empty();
       }
 
       public override void Empty()
@@ -61,8 +61,6 @@ namespace NMEA
          CalculatedWindSpeedKnots = 0.0D;
          CalculatedWindSpeedMetersPerSecond = 0.0D;
          CalculatedWindSpeedKilometersPerHour = 0.0D;
-
-         Mnemonic = "VWT";
       }
 
       public override bool Parse(Sentence sentence)

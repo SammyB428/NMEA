@@ -379,22 +379,22 @@ namespace NMEA
 
          if (temp_string.Length != 6)
          {
-            // The original week zero
-            return (new System.DateTime(1980, 1, 6));
+            // The original week zero https://en.wikipedia.org/wiki/Global_Positioning_System#Format
+            return (Response.GPSEpoch);
          }
 
          int day = 0;
 
          if (int.TryParse(temp_string.Substring(0, 2), out day) == false)
          {
-            // The original week zero
-            return (new System.DateTime(1980, 1, 6));
+            // The original week zero https://en.wikipedia.org/wiki/Global_Positioning_System#Format
+            return (Response.GPSEpoch);
          }
 
          if (day > 31 || day == 0 )
          {
             // The original week zero
-            return (new System.DateTime(1980, 1, 6));
+            return (Response.GPSEpoch);
          }
 
          int month = 0;
@@ -402,13 +402,13 @@ namespace NMEA
          if (int.TryParse(temp_string.Substring(2, 2), out month) == false)
          {
             // The original week zero
-            return (new System.DateTime(1980, 1, 6));
+            return (Response.GPSEpoch);
          }
 
          if (month > 12 || month == 0)
          {
             // The original week zero
-            return (new System.DateTime(1980, 1, 6));
+            return (Response.GPSEpoch);
          }
 
          int year = 0;
@@ -416,12 +416,11 @@ namespace NMEA
          if (int.TryParse(temp_string.Substring(4, 2), out year) == false)
          {
             // The original week zero
-            return (new System.DateTime(1980, 1, 6));
+            return (Response.GPSEpoch);
          }
 
-         if (year >= 80)
-         {
-            // First GPS bird was launched in 1980
+         if (year >= 80) // First GPS bird was launched in 1980
+            {
             year += 1900;
          }
          else
@@ -452,7 +451,7 @@ namespace NMEA
             if ( int.TryParse( temp_string.Substring( 0, 2 ), out hours ) == false )
             {
                // The original week zero
-               return( new System.DateTime( 1980, 1, 6 ) );
+               return(Response.GPSEpoch);
             }
 
             int minutes = 0;
@@ -460,14 +459,14 @@ namespace NMEA
             if ( int.TryParse( temp_string.Substring( 2, 2 ), out minutes ) == false )
             {
                // The original week zero
-               return( new System.DateTime( 1980, 1, 6 ) );
+               return(Response.GPSEpoch);
             }
 
             int seconds = 0;
 
             if ( int.TryParse( temp_string.Substring( 4, 2 ), out seconds ) == false )
             {
-               return( new System.DateTime( 1980, 1, 6 ) );
+               return(Response.GPSEpoch);
             }
 
             int milliseconds = 0;
@@ -509,11 +508,11 @@ namespace NMEA
                }
             }
 
-            return (new System.DateTime(1980, 1, 6, hours, minutes, seconds, milliseconds));
+            return (new System.DateTime(Response.GPSEpoch.Year, Response.GPSEpoch.Month, Response.GPSEpoch.Day, hours, minutes, seconds, milliseconds));
          }
 
          // The original week zero
-         return( new System.DateTime( 1980, 1, 6 ) );
+         return(Response.GPSEpoch);
       }
 
       public NMEA.TransducerType TransducerType( int field_number )

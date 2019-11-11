@@ -51,17 +51,17 @@ namespace NMEA
       public double AgeOfDifferentialGPSDataSeconds;
       public int DifferentialReferenceStationID;
 
-      public GGA()
+      public GGA() : base("GGA")
       {
          Position = new LatLong();
-         Mnemonic = "GGA";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          Position.Empty();
          GPSQuality = 0;
          NumberOfSatellitesInUse = 0;
@@ -70,8 +70,6 @@ namespace NMEA
          GeoidalSeparationMeters = 0.0D;
          AgeOfDifferentialGPSDataSeconds = 0.0D;
          DifferentialReferenceStationID = 0;
-
-         Mnemonic = "GGA";
       }
 
       public override bool Parse(Sentence sentence)
@@ -113,9 +111,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

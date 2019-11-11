@@ -51,23 +51,22 @@ namespace NMEA
       public double DistanceNauticalMiles;
       public string To;
 
-      public BEC()
+      public BEC() : base("BEC")
       {
-         Mnemonic = "BEC";
+         Position = new LatLong();
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          Position.Empty();
          BearingTrue = 0.0D;
          BearingMagnetic = 0.0D;
          DistanceNauticalMiles = 0.0D;
-         To = "";
-
-         Mnemonic = "BEC";
+         To = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -84,9 +83,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

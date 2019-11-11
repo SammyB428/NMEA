@@ -49,7 +49,7 @@ namespace NMEA
       public RatioAndPulse Secondary4;
       public RatioAndPulse Secondary5;
 
-      public LCD()
+      public LCD() : base("LCD")
       {
          Master = new RatioAndPulse();
          Secondary1 = new RatioAndPulse();
@@ -57,8 +57,7 @@ namespace NMEA
          Secondary3 = new RatioAndPulse();
          Secondary4 = new RatioAndPulse();
          Secondary5 = new RatioAndPulse();
-
-         Mnemonic = "LCD";
+         Empty();
       }
 
       public override void Empty()
@@ -72,8 +71,6 @@ namespace NMEA
          Secondary3.Empty();
          Secondary4.Empty();
          Secondary5.Empty();
-
-         Mnemonic = "LCD";
       }
 
       public override bool Parse(Sentence sentence)

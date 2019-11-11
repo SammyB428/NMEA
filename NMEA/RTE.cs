@@ -41,14 +41,14 @@ namespace NMEA
 {
    public class RTE : Response
    {
-      public NMEA.RouteType Type;
+      public RouteType Type;
       public string RouteName;
       public System.Collections.ArrayList Waypoints;
 
-      public RTE()
+      public RTE() : base("RTE")
       {
          Waypoints = new System.Collections.ArrayList();
-         Mnemonic = "RTE";
+         Empty();
       }
 
       public override void Empty()
@@ -56,10 +56,8 @@ namespace NMEA
          base.Empty();
 
          Type = RouteType.Unknown;
-         RouteName = "";
+         RouteName = string.Empty;
          Waypoints.Clear();
-
-         Mnemonic = "RTE";
       }
 
       public override bool Parse(Sentence sentence)

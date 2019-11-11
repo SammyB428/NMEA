@@ -43,9 +43,9 @@ namespace NMEA
    {
       public double DegreesTrue;
 
-      public HDT()
+      public HDT() : base("HDT")
       {
-         Mnemonic = "HDT";
+         Empty();
       }
 
       public override void Empty()
@@ -53,8 +53,6 @@ namespace NMEA
          base.Empty();
 
          DegreesTrue = 0.0D;
-
-         Mnemonic = "HDT";
       }
 
       public override bool Parse(Sentence sentence)
@@ -76,9 +74,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

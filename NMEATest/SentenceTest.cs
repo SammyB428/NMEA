@@ -45,8 +45,6 @@ using System;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for SentenceTest and is intended
     ///to contain all SentenceTest Unit Tests
@@ -54,8 +52,6 @@ namespace NMEATest
    [TestClass()]
    public class SentenceTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -111,41 +107,38 @@ namespace NMEATest
       [TestMethod()]
       public void TransducerTypeTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         TransducerType expected = new TransducerType(); // TODO: Initialize to an appropriate value
-         TransducerType actual;
-         actual = target.TransducerType(field_number);
+         var expected = new TransducerType(); // TODO: Initialize to an appropriate value
+         var actual = target.TransducerType(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Time
-      ///</summary>
+      /// A test for Time
+      /// </summary>
       [TestMethod()]
       public void TimeTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         DateTime expected = new DateTime(); // TODO: Initialize to an appropriate value
-         DateTime actual;
-         actual = target.Time(field_number);
+         var expected = new DateTime(); // TODO: Initialize to an appropriate value
+         var actual = target.Time(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Reference
-      ///</summary>
+      /// A test for Reference
+      /// </summary>
       [TestMethod()]
       public void ReferenceTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         Reference expected = new Reference(); // TODO: Initialize to an appropriate value
-         Reference actual;
-         actual = target.Reference(field_number);
+         var expected = new Reference(); // TODO: Initialize to an appropriate value
+         var actual = target.Reference(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -156,40 +149,37 @@ namespace NMEATest
       [TestMethod()]
       public void NorthOrSouthTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         NorthOrSouth expected = new NorthOrSouth(); // TODO: Initialize to an appropriate value
-         NorthOrSouth actual;
-         actual = target.NorthOrSouth(field_number);
+         var expected = new NorthOrSouth(); // TODO: Initialize to an appropriate value
+         var actual = target.NorthOrSouth(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for LeftOrRight
-      ///</summary>
+      /// A test for LeftOrRight
+      /// </summary>
       [TestMethod()]
       public void LeftOrRightTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         LeftOrRight expected = new LeftOrRight(); // TODO: Initialize to an appropriate value
-         LeftOrRight actual;
-         actual = target.LeftOrRight(field_number);
+         var expected = new LeftOrRight(); // TODO: Initialize to an appropriate value
+         var actual = target.LeftOrRight(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for IsGood
-      ///</summary>
+      /// A test for IsGood
+      /// </summary>
       [TestMethod()]
       public void IsGoodTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.IsGood();
+         var actual = target.IsGood();
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -200,25 +190,23 @@ namespace NMEATest
       [TestMethod()]
       public void IsChecksumBadTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
-         NMEA.Boolean expected = new NMEA.Boolean(); // TODO: Initialize to an appropriate value
-         NMEA.Boolean actual;
-         actual = target.IsChecksumBad();
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
+         var expected = new NMEA.Boolean(); // TODO: Initialize to an appropriate value
+         var actual = target.IsChecksumBad();
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Integer
-      ///</summary>
+      /// A test for Integer
+      /// </summary>
       [TestMethod()]
       public void IntegerTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
          int expected = 0; // TODO: Initialize to an appropriate value
-         int actual;
-         actual = target.Integer(field_number);
+         int actual = target.Integer(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -229,81 +217,76 @@ namespace NMEATest
       [TestMethod()]
       public void HexValueTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
-         string hex_string = string.Empty; // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
+         var hex_string = string.Empty; // TODO: Initialize to an appropriate value
          int expected = 0; // TODO: Initialize to an appropriate value
-         int actual;
-         actual = target.HexValue(hex_string);
+         int actual = target.HexValue(hex_string);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for GetNumberOfDataFields
-      ///</summary>
+      /// A test for GetNumberOfDataFields
+      /// </summary>
       [TestMethod()]
       public void GetNumberOfDataFieldsTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int expected = 0; // TODO: Initialize to an appropriate value
-         int actual;
-         actual = target.GetNumberOfDataFields();
+         int actual = target.GetNumberOfDataFields();
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Field
-      ///</summary>
+      /// A test for Field
+      /// </summary>
       [TestMethod()]
       public void FieldTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int desired_field_number = 0; // TODO: Initialize to an appropriate value
-         string expected = string.Empty; // TODO: Initialize to an appropriate value
-         string actual;
-         actual = target.Field(desired_field_number);
+         var expected = string.Empty; // TODO: Initialize to an appropriate value
+         var actual = target.Field(desired_field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for FAAMode
-      ///</summary>
+      /// A test for FAAMode
+      /// </summary>
       [TestMethod()]
       public void FAAModeTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         FAAModeIndicator expected = new FAAModeIndicator(); // TODO: Initialize to an appropriate value
-         FAAModeIndicator actual;
-         actual = target.FAAMode(field_number);
+         var expected = new FAAModeIndicator(); // TODO: Initialize to an appropriate value
+         var actual = target.FAAMode(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Empty
-      ///</summary>
+      /// A test for Empty
+      /// </summary>
       [TestMethod()]
       public void EmptyTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }
 
       /// <summary>
-      ///A test for EastOrWest
-      ///</summary>
+      /// A test for EastOrWest
+      /// </summary>
       [TestMethod()]
       public void EastOrWestTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         EastOrWest expected = new EastOrWest(); // TODO: Initialize to an appropriate value
-         EastOrWest actual;
-         actual = target.EastOrWest(field_number);
+         var expected = new EastOrWest(); // TODO: Initialize to an appropriate value
+         var actual = target.EastOrWest(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -314,40 +297,37 @@ namespace NMEATest
       [TestMethod()]
       public void DoubleTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
          double expected = 0F; // TODO: Initialize to an appropriate value
-         double actual;
-         actual = target.Double(field_number);
+         double actual = target.Double(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for ComputeChecksum
-      ///</summary>
+      /// A test for ComputeChecksum
+      /// </summary>
       [TestMethod()]
       public void ComputeChecksumTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          byte expected = 0; // TODO: Initialize to an appropriate value
-         byte actual;
-         actual = target.ComputeChecksum();
+         byte actual = target.ComputeChecksum();
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for CommunicationsMode
-      ///</summary>
+      /// A test for CommunicationsMode
+      /// </summary>
       [TestMethod()]
       public void CommunicationsModeTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         CommunicationsMode expected = new CommunicationsMode(); // TODO: Initialize to an appropriate value
-         CommunicationsMode actual;
-         actual = target.CommunicationsMode(field_number);
+         var expected = new CommunicationsMode(); // TODO: Initialize to an appropriate value
+         var actual = target.CommunicationsMode(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -358,36 +338,34 @@ namespace NMEATest
       [TestMethod()]
       public void ChecksumFieldNumberTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int expected = 0; // TODO: Initialize to an appropriate value
-         int actual;
-         actual = target.ChecksumFieldNumber();
+         int actual = target.ChecksumFieldNumber();
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Boolean
-      ///</summary>
+      /// A test for Boolean
+      /// </summary>
       [TestMethod()]
       public void BooleanTest()
       {
-         Sentence target = new Sentence(); // TODO: Initialize to an appropriate value
+         var target = new Sentence(); // TODO: Initialize to an appropriate value
          int field_number = 0; // TODO: Initialize to an appropriate value
-         NMEA.Boolean expected = new NMEA.Boolean(); // TODO: Initialize to an appropriate value
-         NMEA.Boolean actual;
-         actual = target.Boolean(field_number);
+         var expected = new NMEA.Boolean(); // TODO: Initialize to an appropriate value
+         var actual = target.Boolean(field_number);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
 
       /// <summary>
-      ///A test for Sentence Constructor
-      ///</summary>
+      /// A test for Sentence Constructor
+      /// </summary>
       [TestMethod()]
       public void SentenceConstructorTest()
       {
-         Sentence target = new Sentence();
+         var target = new Sentence();
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
    }

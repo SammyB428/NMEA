@@ -46,9 +46,9 @@ namespace NMEA
       public double Port;
       public Boolean IsPortDataValid;
 
-      public RSA()
+      public RSA() : base("RSA")
       {
-         Mnemonic = "RSA";
+         Empty();
       }
 
       public override void Empty()
@@ -59,8 +59,6 @@ namespace NMEA
          IsStarboardDataValid = Boolean.Unknown;
          Port = 0.0D;
          IsPortDataValid = Boolean.Unknown;
-
-         Mnemonic = "RSA";
       }
 
       public override bool Parse(Sentence sentence)

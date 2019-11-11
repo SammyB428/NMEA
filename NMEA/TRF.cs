@@ -50,18 +50,17 @@ namespace NMEA
       public double UpdateDistanceNauticalMiles;
       public double SatelliteID;
 
-      public TRF()
+      public TRF() : base("TRF")
       {
          Position = new LatLong();
-         UTCTime = new System.DateTime(1980, 1, 6);
-         Mnemonic = "TRF";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          IsDataValid = NMEA.Boolean.Unknown;
          Position.Empty();
          ElevationAngle = 0.0D;
@@ -69,8 +68,6 @@ namespace NMEA
          NumberOfDopplerIntervals = 0.0D;
          UpdateDistanceNauticalMiles = 0.0D;
          SatelliteID = 0;
-
-         Mnemonic = "TRF";
       }
 
       public override bool Parse(Sentence sentence)

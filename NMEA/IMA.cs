@@ -48,23 +48,21 @@ namespace NMEA
       public double HeadingDegreesMagnetic;
       public double SpeedKnots;
 
-      public IMA()
+      public IMA() : base("IMA")
       {
-         Mnemonic = "IMA";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         VesselName = "";
-         Callsign = "";
+         VesselName = string.Empty;
+         Callsign = string.Empty;
          Position.Empty();
          HeadingDegreesTrue = 0.0D;
          HeadingDegreesMagnetic = 0.0D;
          SpeedKnots = 0.0D;
-
-         Mnemonic = "IMA";
       }
 
       public override bool Parse(Sentence sentence)
@@ -95,9 +93,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

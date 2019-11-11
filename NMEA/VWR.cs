@@ -42,14 +42,14 @@ namespace NMEA
    public class VWR : Response
    {
       public double RelativeWindAngle;
-      public NMEA.LeftOrRight RelativeDirection;
+      public LeftOrRight RelativeDirection;
       public double MeasuredWindSpeedKnots;
       public double MeasuredWindSpeedMetersPerSecond;
       public double MeasuredWindSpeedKilometersPerHour;
 
-      public VWR()
+      public VWR() : base("VWR")
       {
-         Mnemonic = "VWR";
+         Empty();
       }
 
       public override void Empty()
@@ -61,8 +61,6 @@ namespace NMEA
          MeasuredWindSpeedKnots = 0.0D;
          MeasuredWindSpeedMetersPerSecond = 0.0D;
          MeasuredWindSpeedKilometersPerHour = 0.0D;
-
-         Mnemonic = "VWR";
       }
 
       public override bool Parse(Sentence sentence)

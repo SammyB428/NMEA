@@ -44,10 +44,10 @@ namespace NMEA
       public int NumberOfSatellites;
       public SatelliteData[] SatellitesInView;
 
-      public GSV()
+      public GSV() : base("GSV")
       {
          SatellitesInView = new SatelliteData[12];
-         Mnemonic = "GSV";
+         Empty();
       }
 
       public override void Empty()
@@ -60,8 +60,6 @@ namespace NMEA
          {
             SatellitesInView[index].Empty();
          }
-
-         Mnemonic = "GSV";
       }
 
       public override bool Parse(Sentence sentence)
@@ -100,9 +98,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             return (false);
          }

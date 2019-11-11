@@ -45,9 +45,9 @@ namespace NMEA
       public double AbsoluteHumidityPercent;
       public double DewPointDegreesCelcius;
 
-      public MHU()
+      public MHU() : base("MHU")
       {
-         Mnemonic = "MHU";
+         Empty();
       }
 
       public override void Empty()
@@ -57,8 +57,6 @@ namespace NMEA
          RelativeHumidityPercent = 0.0D;
          AbsoluteHumidityPercent = 0.0D;
          DewPointDegreesCelcius = 0.0D;
-
-         Mnemonic = "MHU";
       }
 
       public override bool Parse(Sentence sentence)
@@ -82,9 +80,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

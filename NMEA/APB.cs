@@ -60,9 +60,9 @@ namespace NMEA
       public string HeadingToSteerUnits;
       public NMEA.FAAModeIndicator FAAMode;
 
-      public APB()
+      public APB() : base("APB")
       {
-         Mnemonic = "APB";
+         Empty();
       }
 
       public override void Empty()
@@ -73,19 +73,17 @@ namespace NMEA
          IsLoranCCycleLockOK = NMEA.Boolean.Unknown;
          CrossTrackErrorMagnitude = 0.0D;
          DirectionToSteer = NMEA.LeftOrRight.Unknown;
-         CrossTrackUnits = "";
+         CrossTrackUnits = string.Empty;
          IsArrivalCircleEntered = NMEA.Boolean.Unknown;
          IsPerpendicular = NMEA.Boolean.Unknown;
          BearingOriginToDestination = 0.0D;
-         BearingOriginToDestinationUnits = "";
-         To = "";
+         BearingOriginToDestinationUnits = string.Empty;
+         To = string.Empty;
          BearingPresentPositionToDestination = 0.0D;
-         BearingPresentPositionToDestinationUnits = "";
+         BearingPresentPositionToDestinationUnits = string.Empty;
          HeadingToSteer = 0.0D;
-         HeadingToSteerUnits = "";
+         HeadingToSteerUnits = string.Empty;
          FAAMode = NMEA.FAAModeIndicator.Unknown;
-
-         Mnemonic = "APB";
       }
 
       public override bool Parse(Sentence sentence)
@@ -128,9 +126,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

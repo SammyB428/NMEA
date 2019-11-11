@@ -60,9 +60,9 @@ namespace NMEA
       public int F0ClockParameter;
       public int F1ClockParameter;
 
-      public ALM()
+      public ALM() : base("ALM")
       {
-         Mnemonic = "ALM";
+         Empty();
       }
 
       public override void Empty()
@@ -84,8 +84,6 @@ namespace NMEA
          MeanAnomaly = 0;
          F0ClockParameter = 0;
          F1ClockParameter = 0;
-
-         Mnemonic = "ALM";
       }
 
       public override bool Parse(Sentence sentence)
@@ -119,9 +117,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

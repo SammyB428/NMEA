@@ -44,8 +44,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for LatitudeTest and is intended
     ///to contain all LatitudeTest Unit Tests
@@ -53,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class LatitudeTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -103,18 +99,16 @@ namespace NMEATest
       //
       #endregion
 
-
       /// <summary>
       ///A test for Northing
       ///</summary>
       [TestMethod()]
       public void NorthingTest()
       {
-         Latitude target = new Latitude(); // TODO: Initialize to an appropriate value
-         NorthOrSouth expected = new NorthOrSouth(); // TODO: Initialize to an appropriate value
-         NorthOrSouth actual;
+         var target = new Latitude(); // TODO: Initialize to an appropriate value
+         var expected = new NorthOrSouth(); // TODO: Initialize to an appropriate value
          target.Northing = expected;
-         actual = target.Northing;
+         var actual = target.Northing;
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -125,13 +119,12 @@ namespace NMEATest
       [TestMethod()]
       public void ParseTest()
       {
-         Latitude target = new Latitude(); // TODO: Initialize to an appropriate value
+         var target = new Latitude(); // TODO: Initialize to an appropriate value
          int position_field_number = 0; // TODO: Initialize to an appropriate value
          int north_or_south_field_number = 0; // TODO: Initialize to an appropriate value
          Sentence sentence = null; // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.Parse(position_field_number, north_or_south_field_number, sentence);
+         bool actual = target.Parse(position_field_number, north_or_south_field_number, sentence);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -142,7 +135,7 @@ namespace NMEATest
       [TestMethod()]
       public void EmptyTest()
       {
-         Latitude target = new Latitude(); // TODO: Initialize to an appropriate value
+         var target = new Latitude(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }
@@ -153,7 +146,7 @@ namespace NMEATest
       [TestMethod()]
       public void LatitudeConstructorTest2()
       {
-         Latitude target = new Latitude();
+         var target = new Latitude();
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
 
@@ -164,7 +157,7 @@ namespace NMEATest
       public void LatitudeConstructorTest1()
       {
          double c = 0F; // TODO: Initialize to an appropriate value
-         Latitude target = new Latitude(c);
+         var target = new Latitude(c);
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
 
@@ -175,8 +168,8 @@ namespace NMEATest
       public void LatitudeConstructorTest()
       {
          double c = 0F; // TODO: Initialize to an appropriate value
-         NorthOrSouth n = new NorthOrSouth(); // TODO: Initialize to an appropriate value
-         Latitude target = new Latitude(c, n);
+         var n = new NorthOrSouth(); // TODO: Initialize to an appropriate value
+         var target = new Latitude(c, n);
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
    }

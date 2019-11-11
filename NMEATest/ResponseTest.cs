@@ -44,8 +44,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for ResponseTest and is intended
     ///to contain all ResponseTest Unit Tests
@@ -53,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class ResponseTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -103,18 +99,16 @@ namespace NMEATest
       //
       #endregion
 
-
       /// <summary>
       ///A test for Parse
       ///</summary>
       [TestMethod()]
       public void ParseTest()
       {
-         Response target = CreateResponse(); // TODO: Initialize to an appropriate value
+         var target = CreateResponse(); // TODO: Initialize to an appropriate value
          Sentence sentence = null; // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.Parse(sentence);
+         var actual = target.Parse(sentence);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -132,7 +126,7 @@ namespace NMEATest
       [TestMethod()]
       public void EmptyTest()
       {
-         Response target = CreateResponse(); // TODO: Initialize to an appropriate value
+         var target = CreateResponse(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }

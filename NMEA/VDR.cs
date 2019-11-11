@@ -45,9 +45,9 @@ namespace NMEA
       public double DegreesMagnetic;
       public double Knots;
 
-      public VDR()
+      public VDR() : base("VDR")
       {
-         Mnemonic = "VDR";
+         Empty();
       }
 
       public override void Empty()
@@ -57,8 +57,6 @@ namespace NMEA
          DegreesTrue = 0.0D;
          DegreesMagnetic = 0.0D;
          Knots = 0.0D;
-
-         Mnemonic = "VDR";
       }
 
       public override bool Parse(Sentence sentence)

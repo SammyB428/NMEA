@@ -43,9 +43,9 @@ namespace NMEA
    {
       public double ElevationDegrees;
 
-      public TEP()
+      public TEP() : base("TEP")
       {
-         Mnemonic = "TEP";
+         Empty();
       }
 
       public override void Empty()
@@ -53,8 +53,6 @@ namespace NMEA
          base.Empty();
 
          ElevationDegrees = 0.0D;
-
-         Mnemonic = "TEP";
       }
 
       public override bool Parse(Sentence sentence)

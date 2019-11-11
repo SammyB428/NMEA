@@ -44,9 +44,9 @@ namespace NMEA
       public double Magnitude;
       public LeftOrRight DirectionToSteer;
 
-      public XTR()
+      public XTR() : base("XTR")
       {
-         Mnemonic = "XTR";
+         Empty();
       }
 
       public override void Empty()
@@ -55,8 +55,6 @@ namespace NMEA
 
          Magnitude = 0.0D;
          DirectionToSteer = LeftOrRight.Unknown;
-
-         Mnemonic = "XTR";
       }
 
       public override bool Parse(Sentence sentence)

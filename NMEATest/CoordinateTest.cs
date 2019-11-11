@@ -51,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class CoordinateTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -101,7 +99,6 @@ namespace NMEATest
       //
       #endregion
 
-
       internal virtual Coordinate CreateCoordinate()
       {
          // TODO: Instantiate an appropriate concrete class.
@@ -115,11 +112,10 @@ namespace NMEATest
       [TestMethod()]
       public void DegreesTest()
       {
-         Coordinate target = CreateCoordinate(); // TODO: Initialize to an appropriate value
+         var target = CreateCoordinate(); // TODO: Initialize to an appropriate value
          double expected = 0F; // TODO: Initialize to an appropriate value
-         double actual;
          target.Degrees = expected;
-         actual = target.Degrees;
+         var actual = target.Degrees;
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }

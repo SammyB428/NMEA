@@ -44,9 +44,9 @@ namespace NMEA
       public double DepthMeters;
       public double OffsetFromTransducerMeters;
 
-      public DPT()
+      public DPT() : base("DPT")
       {
-         Mnemonic = "DPT";
+         Empty();
       }
 
       public override void Empty()
@@ -55,8 +55,6 @@ namespace NMEA
 
          DepthMeters = 0.0D;
          OffsetFromTransducerMeters = 0.0D;
-
-         Mnemonic = "DPT";
       }
 
       public override bool Parse(Sentence sentence)
@@ -80,9 +78,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

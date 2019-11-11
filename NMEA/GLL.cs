@@ -46,21 +46,20 @@ namespace NMEA
       public LatLong Position;
       public FAAModeIndicator Mode;
 
-      public GLL()
+      public GLL() : base("GLL")
       {
          Position = new LatLong();
-         Mnemonic = "GLL";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
+         UTCTime = Response.GPSEpoch;
          IsDataValid = NMEA.Boolean.Unknown;
-         Mode = FAAModeIndicator.Unknown;
          Position.Empty();
-
-         Mnemonic = "GLL";
+         Mode = FAAModeIndicator.Unknown;
       }
 
       public override bool Parse(Sentence sentence)

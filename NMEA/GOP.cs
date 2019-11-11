@@ -41,16 +41,14 @@ namespace NMEA
 {
    public class GOP : WayPointLocation
    {
-      public GOP()
+      public GOP() : base("GOP")
       {
-         Mnemonic = "GOP";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
-
-         Mnemonic = "GOP";
       }
    }
 }

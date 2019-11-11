@@ -44,8 +44,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for GLLTest and is intended
     ///to contain all GLLTest Unit Tests
@@ -53,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class GLLTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -103,18 +99,16 @@ namespace NMEATest
       //
       #endregion
 
-
       /// <summary>
       ///A test for Parse
       ///</summary>
       [TestMethod()]
       public void ParseTest()
       {
-         GLL target = new GLL(); // TODO: Initialize to an appropriate value
+         var target = new GLL(); // TODO: Initialize to an appropriate value
          Sentence sentence = null; // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.Parse(sentence);
+         bool actual = target.Parse(sentence);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -125,7 +119,7 @@ namespace NMEATest
       [TestMethod()]
       public void EmptyTest()
       {
-         GLL target = new GLL(); // TODO: Initialize to an appropriate value
+         var target = new GLL(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }
@@ -136,7 +130,7 @@ namespace NMEATest
       [TestMethod()]
       public void GLLConstructorTest()
       {
-         GLL target = new GLL();
+         var target = new GLL();
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
    }

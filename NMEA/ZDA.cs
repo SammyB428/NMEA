@@ -45,21 +45,18 @@ namespace NMEA
       public int LocalHourDeviation;
       public int LocalMinutesDeviation;
 
-      public ZDA()
+      public ZDA() : base("ZDA")
       {
-         Time = new System.DateTime(1980, 1, 6);
-         Mnemonic = "ZDA";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         Time = new System.DateTime(1980, 1, 6);
+         Time = Response.GPSEpoch;
          LocalHourDeviation = 0;
          LocalMinutesDeviation = 0;
-
-         Mnemonic = "ZDA";
       }
 
       public override bool Parse(Sentence sentence)

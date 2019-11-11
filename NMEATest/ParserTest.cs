@@ -44,8 +44,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for ParserTest and is intended
     ///to contain all ParserTest Unit Tests
@@ -53,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class ParserTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -103,18 +99,16 @@ namespace NMEATest
       //
       #endregion
 
-
       /// <summary>
       ///A test for Parse
       ///</summary>
       [TestMethod()]
       public void ParseTest()
       {
-         Parser target = new Parser(); // TODO: Initialize to an appropriate value
+         var target = new Parser(); // TODO: Initialize to an appropriate value
          string line = string.Empty; // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.Parse(line);
+         var actual = target.Parse(line);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -125,7 +119,7 @@ namespace NMEATest
       [TestMethod()]
       public void EmptyTest()
       {
-         Parser target = new Parser(); // TODO: Initialize to an appropriate value
+         var target = new Parser(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }
@@ -136,7 +130,7 @@ namespace NMEATest
       [TestMethod()]
       public void ParserConstructorTest()
       {
-         Parser target = new Parser();
+         var target = new Parser();
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
    }

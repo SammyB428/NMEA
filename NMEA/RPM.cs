@@ -47,22 +47,20 @@ namespace NMEA
       public double PropellerPitchPercentage;
       public Boolean IsDataValid;
 
-      public RPM()
+      public RPM() : base("RPM")
       {
-         Mnemonic = "RPM";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         Source = "";
+         Source = string.Empty;
          SourceNumber = 0;
          RevolutionsPerMinute = 0.0D;
          PropellerPitchPercentage = 0.0D;
          IsDataValid = Boolean.Unknown;
-
-         Mnemonic = "RPM";
       }
 
       public override bool Parse(Sentence sentence)

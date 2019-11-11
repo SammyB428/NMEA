@@ -46,9 +46,9 @@ namespace NMEA
       public NMEA.CommunicationsMode Mode;
       public int PowerLevel;
 
-      public FSI()
+      public FSI() : base("FSI")
       {
-         Mnemonic = "FSI";
+         Empty();
       }
 
       public override void Empty()
@@ -59,8 +59,6 @@ namespace NMEA
          ReceivingFrequency = 0.0D;
          Mode = CommunicationsMode.Unknown;
          PowerLevel = 0;
-
-         Mnemonic = "FSI";
       }
 
       public override bool Parse(Sentence sentence)
@@ -84,9 +82,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

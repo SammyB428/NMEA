@@ -44,19 +44,17 @@ namespace NMEA
       public string Sentence;
       public string Source;
 
-      public P()
+      public P() : base("P")
       {
-         Mnemonic = "P";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         Sentence = "";
-         Source = "";
-
-         Mnemonic = "P";
+         Sentence = string.Empty;
+         Source = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)

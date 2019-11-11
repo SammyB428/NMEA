@@ -44,9 +44,9 @@ namespace NMEA
       public double Knots;
       public double MetersPerSecond;
 
-      public VPW()
+      public VPW() : base("VPW")
       {
-         Mnemonic = "VPW";
+         Empty();
       }
 
       public override void Empty()
@@ -55,8 +55,6 @@ namespace NMEA
 
          Knots = 0.0D;
          MetersPerSecond = 0.0D;
-
-         Mnemonic = "VPW";
       }
 
       public override bool Parse(Sentence sentence)

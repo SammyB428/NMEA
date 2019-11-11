@@ -48,9 +48,9 @@ namespace NMEA
       public double TransverseGroundSpeed;
       public Boolean IsGroundSpeedValid;
 
-      public VBW()
+      public VBW() : base("VBW")
       {
-         Mnemonic = "VBW";
+         Empty();
       }
 
       public override void Empty()
@@ -63,8 +63,6 @@ namespace NMEA
          LongitudinalGroundSpeed = 0.0D;
          TransverseGroundSpeed = 0.0D;
          IsGroundSpeedValid = Boolean.Unknown;
-
-         Mnemonic = "VBW";
       }
 
       public override bool Parse(Sentence sentence)

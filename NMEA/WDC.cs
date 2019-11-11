@@ -44,9 +44,9 @@ namespace NMEA
       public double NauticalMiles;
       public string To;
 
-      public WDC()
+      public WDC() : base("WDC")
       {
-         Mnemonic = "WDC";
+         Empty();
       }
 
       public override void Empty()
@@ -54,9 +54,7 @@ namespace NMEA
          base.Empty();
 
          NauticalMiles = 0.0D;
-         To = "";
-
-         Mnemonic = "WDC";
+         To = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)

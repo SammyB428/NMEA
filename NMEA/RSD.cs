@@ -49,11 +49,11 @@ namespace NMEA
       public string RangeUnits;
       public Rotation DisplayRotation;
 
-      public RSD()
+      public RSD() : base("RSD")
       {
          Data1 = new RadarData();
          Data2 = new RadarData();
-         Mnemonic = "RSD";
+         Empty();
       }
 
       public override void Empty()
@@ -65,10 +65,8 @@ namespace NMEA
          CursorRangeFromOwnShip = 0.0D;
          CursorBearingDegreesClockwiseFromZero = 0.0D;
          RangeScale = 0.0D;
-         RangeUnits = "";
+         RangeUnits = string.Empty;
          DisplayRotation = Rotation.Unknown;
-
-         Mnemonic = "RSD";
       }
 
       public override bool Parse(Sentence sentence)

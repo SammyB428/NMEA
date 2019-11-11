@@ -45,7 +45,7 @@ namespace NMEA
       LatLong Position;
       string Waypoint;
 
-      public WayPointLocation()
+      public WayPointLocation(string m) : base(m)
       {
          Position = new LatLong();
       }
@@ -54,9 +54,9 @@ namespace NMEA
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          Position.Empty();
-         Waypoint = "";
+         Waypoint = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -82,9 +82,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

@@ -45,22 +45,18 @@ namespace NMEA
       public System.DateTime LocalTime;
       public int LocalHourDeviation;
 
-      public ZLZ()
+      public ZLZ() : base("ZLZ")
       {
-         UTCTime = new System.DateTime(1980, 1, 6);
-         LocalTime = UTCTime;
-         Mnemonic = "ZLZ";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          LocalTime = UTCTime;
          LocalHourDeviation = 0;
-
-         Mnemonic = "ZLZ";
       }
 
       public override bool Parse(Sentence sentence)
@@ -83,9 +79,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

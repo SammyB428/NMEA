@@ -43,9 +43,9 @@ namespace NMEA
    {
       public int TalkerIDNumber;
 
-      public STN()
+      public STN() : base("STN")
       {
-         Mnemonic = "STN";
+         Empty();
       }
 
       public override void Empty()
@@ -53,8 +53,6 @@ namespace NMEA
          base.Empty();
 
          TalkerIDNumber = 0;
-
-         Mnemonic = "STN";
       }
 
       public override bool Parse(Sentence sentence)

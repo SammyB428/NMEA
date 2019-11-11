@@ -41,15 +41,25 @@ namespace NMEA
 {
    public abstract class Response
    {
+      /// <summary>
+      /// The beginning of GPS time (measures in weeks and seconds)
+      /// https://en.wikipedia.org/wiki/Global_Positioning_System#Format
+      /// </summary>
+      public static readonly System.DateTime GPSEpoch = new System.DateTime(1980, 1, 6);
+
+      public readonly string Mnemonic;
       public string DataSource;
-      public string Mnemonic;
       public string Talker;
+
+      public Response(string m)
+      {
+         Mnemonic = m;
+      }
 
       public virtual void Empty()
       {
-         DataSource = "";
-         Mnemonic = "";
-         Talker = "";
+         DataSource = string.Empty;
+         Talker = string.Empty;
       }
 
       public abstract bool Parse(Sentence sentence);

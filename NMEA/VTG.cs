@@ -47,9 +47,9 @@ namespace NMEA
       public double SpeedKilometersPerHour;
       public FAAModeIndicator Mode;
 
-      public VTG()
+      public VTG() : base("VTG")
       {
-         Mnemonic = "VTG";
+         Empty();
       }
 
       public override void Empty()
@@ -62,8 +62,6 @@ namespace NMEA
          SpeedKilometersPerHour = 0.0D;
 
          Mode = FAAModeIndicator.Unknown;
-
-         Mnemonic = "VTG";
       }
 
       public override bool Parse(Sentence sentence)

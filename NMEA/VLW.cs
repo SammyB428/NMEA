@@ -44,9 +44,9 @@ namespace NMEA
       public double TotalDistanceNauticalMiles;
       public double DistanceSinceResetNauticalMiles;
 
-      public VLW()
+      public VLW() : base("VLW")
       {
-         Mnemonic = "VLW";
+         Empty();
       }
 
       public override void Empty()
@@ -55,8 +55,6 @@ namespace NMEA
 
          TotalDistanceNauticalMiles = 0.0D;
          DistanceSinceResetNauticalMiles = 0.0D;
-
-         Mnemonic = "VLW";
       }
 
       public override bool Parse(Sentence sentence)

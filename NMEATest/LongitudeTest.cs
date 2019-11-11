@@ -44,8 +44,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for LongitudeTest and is intended
     ///to contain all LongitudeTest Unit Tests
@@ -53,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class LongitudeTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -103,18 +99,16 @@ namespace NMEATest
       //
       #endregion
 
-
       /// <summary>
       ///A test for Easting
       ///</summary>
       [TestMethod()]
       public void EastingTest()
       {
-         Longitude target = new Longitude(); // TODO: Initialize to an appropriate value
-         EastOrWest expected = new EastOrWest(); // TODO: Initialize to an appropriate value
-         EastOrWest actual;
+         var target = new Longitude(); // TODO: Initialize to an appropriate value
+         var expected = new EastOrWest(); // TODO: Initialize to an appropriate value
          target.Easting = expected;
-         actual = target.Easting;
+         var actual = target.Easting;
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -125,13 +119,12 @@ namespace NMEATest
       [TestMethod()]
       public void ParseTest()
       {
-         Longitude target = new Longitude(); // TODO: Initialize to an appropriate value
+         var target = new Longitude(); // TODO: Initialize to an appropriate value
          int position_field_number = 0; // TODO: Initialize to an appropriate value
          int east_or_west_field_number = 0; // TODO: Initialize to an appropriate value
          Sentence sentence = null; // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.Parse(position_field_number, east_or_west_field_number, sentence);
+         var actual = target.Parse(position_field_number, east_or_west_field_number, sentence);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -142,7 +135,7 @@ namespace NMEATest
       [TestMethod()]
       public void EmptyTest()
       {
-         Longitude target = new Longitude(); // TODO: Initialize to an appropriate value
+         var target = new Longitude(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }
@@ -153,7 +146,7 @@ namespace NMEATest
       [TestMethod()]
       public void LongitudeConstructorTest2()
       {
-         Longitude target = new Longitude();
+         var target = new Longitude();
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
 
@@ -164,7 +157,7 @@ namespace NMEATest
       public void LongitudeConstructorTest1()
       {
          double c = 0F; // TODO: Initialize to an appropriate value
-         Longitude target = new Longitude(c);
+         var target = new Longitude(c);
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
 
@@ -175,8 +168,8 @@ namespace NMEATest
       public void LongitudeConstructorTest()
       {
          double c = 0F; // TODO: Initialize to an appropriate value
-         EastOrWest e = new EastOrWest(); // TODO: Initialize to an appropriate value
-         Longitude target = new Longitude(c, e);
+         var e = new EastOrWest(); // TODO: Initialize to an appropriate value
+         var target = new Longitude(c, e);
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
    }

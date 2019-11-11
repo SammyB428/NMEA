@@ -46,9 +46,9 @@ namespace NMEA
       public string To;
       public string From;
 
-      public BWW()
+      public BWW() : base("BWW")
       {
-         Mnemonic = "BWW";
+         Empty();
       }
 
       public override void Empty()
@@ -57,10 +57,8 @@ namespace NMEA
 
          BearingTrue = 0.0D;
          BearingMagnetic = 0.0D;
-         To = "";
-         From = "";
-
-         Mnemonic = "BWW";
+         To = string.Empty;
+         From = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -86,9 +84,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

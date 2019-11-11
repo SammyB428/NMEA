@@ -44,8 +44,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NMEATest
 {
-    
-    
     /// <summary>
     ///This is a test class for LatLongTest and is intended
     ///to contain all LatLongTest Unit Tests
@@ -53,8 +51,6 @@ namespace NMEATest
    [TestClass()]
    public class LatLongTest
    {
-
-
       private TestContext testContextInstance;
 
       /// <summary>
@@ -103,22 +99,20 @@ namespace NMEATest
       //
       #endregion
 
-
       /// <summary>
       ///A test for Parse
       ///</summary>
       [TestMethod()]
       public void ParseTest()
       {
-         LatLong target = new LatLong(); // TODO: Initialize to an appropriate value
+         var target = new LatLong(); // TODO: Initialize to an appropriate value
          int LatitudePostionFieldNumber = 0; // TODO: Initialize to an appropriate value
          int NorthingFieldNumber = 0; // TODO: Initialize to an appropriate value
          int LongitudePositionFieldNumber = 0; // TODO: Initialize to an appropriate value
          int EastingFieldNumber = 0; // TODO: Initialize to an appropriate value
          Sentence LineToParse = null; // TODO: Initialize to an appropriate value
          bool expected = false; // TODO: Initialize to an appropriate value
-         bool actual;
-         actual = target.Parse(LatitudePostionFieldNumber, NorthingFieldNumber, LongitudePositionFieldNumber, EastingFieldNumber, LineToParse);
+         bool actual = target.Parse(LatitudePostionFieldNumber, NorthingFieldNumber, LongitudePositionFieldNumber, EastingFieldNumber, LineToParse);
          Assert.AreEqual(expected, actual);
          Assert.Inconclusive("Verify the correctness of this test method.");
       }
@@ -129,7 +123,7 @@ namespace NMEATest
       [TestMethod()]
       public void EmptyTest()
       {
-         LatLong target = new LatLong(); // TODO: Initialize to an appropriate value
+         var target = new LatLong(); // TODO: Initialize to an appropriate value
          target.Empty();
          Assert.Inconclusive("A method that does not return a value cannot be verified.");
       }
@@ -140,7 +134,7 @@ namespace NMEATest
       [TestMethod()]
       public void LatLongConstructorTest()
       {
-         LatLong target = new LatLong();
+         var target = new LatLong();
          Assert.Inconclusive("TODO: Implement code to verify target");
       }
    }

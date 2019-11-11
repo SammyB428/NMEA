@@ -48,6 +48,7 @@ namespace NMEA
 
       public TransducerData()
       {
+         Empty();
       }
 
       public void Empty()
@@ -72,10 +73,10 @@ namespace NMEA
    {
       public System.Collections.ArrayList Transducers;
 
-      public XDR()
+      public XDR() : base("XDR")
       {
          Transducers = new System.Collections.ArrayList();
-         Mnemonic = "XDR";
+         Empty();
       }
 
       public override void Empty()
@@ -83,8 +84,6 @@ namespace NMEA
          base.Empty();
 
          Transducers.Clear();
-
-         Mnemonic = "XDR";
       }
 
       public override bool Parse(Sentence sentence)

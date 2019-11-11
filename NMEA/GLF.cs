@@ -41,16 +41,14 @@ namespace NMEA
 {
    public class GLF : WayPointLocation
    {
-      public GLF()
+      public GLF() : base("GLF")
       {
-         Mnemonic = "GLF";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
-
-         Mnemonic = "GLF";
       }
    }
 }

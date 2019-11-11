@@ -43,9 +43,9 @@ namespace NMEA
    {
       public int EfficiencyPercent;
 
-      public VWE()
+      public VWE() : base("VWE")
       {
-         Mnemonic = "VWE";
+         Empty();
       }
 
       public override void Empty()
@@ -53,8 +53,6 @@ namespace NMEA
          base.Empty();
 
          EfficiencyPercent = 0;
-
-         Mnemonic = "VWE";
       }
 
       public override bool Parse(Sentence sentence)

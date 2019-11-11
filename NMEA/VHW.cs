@@ -46,9 +46,9 @@ namespace NMEA
       public double Knots;
       public double KilometersPerHour;
 
-      public VHW()
+      public VHW() : base("VHW")
       {
-         Mnemonic = "VHW";
+         Empty();
       }
 
       public override void Empty()
@@ -59,8 +59,6 @@ namespace NMEA
          DegreesMagnetic = 0.0D;
          Knots = 0.0D;
          KilometersPerHour = 0.0D;
-
-         Mnemonic = "VHW";
       }
 
       public override bool Parse(Sentence sentence)

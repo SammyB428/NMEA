@@ -46,9 +46,9 @@ namespace NMEA
       public string To;
       public string From;
 
-      public WNC()
+      public WNC() : base("WNC")
       {
-         Mnemonic = "WNC";
+         Empty();
       }
 
       public override void Empty()
@@ -57,10 +57,8 @@ namespace NMEA
 
          MilesDistance = 0.0D;
          KilometersDistance = 0.0D;
-         To = "";
-         From = "";
-
-         Mnemonic = "WNC";
+         To = string.Empty;
+         From = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)

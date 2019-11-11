@@ -67,10 +67,10 @@ namespace NMEA
       public double MessageNumber;
       public FrequencyMode[] Frequencies;
 
-      public SFI()
+      public SFI() : base("SFI")
       {
          Frequencies = new FrequencyMode[6];
-         Mnemonic = "SFI";
+         Empty();
       }
 
       public override void Empty()
@@ -84,8 +84,6 @@ namespace NMEA
          {
             f.Empty();
          }
-
-         Mnemonic = "SFI";
       }
 
       public override bool Parse(Sentence sentence)

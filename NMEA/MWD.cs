@@ -46,9 +46,9 @@ namespace NMEA
       public double WindSpeedKnots;
       public double WindSpeedMetersPerSecond;
 
-      public MWD()
+      public MWD() : base("MWD")
       {
-         Mnemonic = "MWD";
+         Empty();
       }
 
       public override void Empty()
@@ -59,8 +59,6 @@ namespace NMEA
          WindDirectionDegreesMagnetic = 0.0D;
          WindSpeedKnots = 0.0D;
          WindSpeedMetersPerSecond = 0.0D;
-
-         Mnemonic = "MWD";
       }
 
       public override bool Parse(Sentence sentence)
@@ -88,9 +86,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

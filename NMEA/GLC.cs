@@ -49,9 +49,15 @@ namespace NMEA
       public LoranTimeDifference TimeDifference4;
       public LoranTimeDifference TimeDifference5;
 
-      public GLC()
+      public GLC() : base("GLC")
       {
-         Mnemonic = "GLC";
+         MasterTOA = new LoranTimeDifference();
+         TimeDifference1 = new LoranTimeDifference();
+         TimeDifference2 = new LoranTimeDifference();
+         TimeDifference3 = new LoranTimeDifference();
+         TimeDifference4 = new LoranTimeDifference();
+         TimeDifference5 = new LoranTimeDifference();
+         Empty();
       }
 
       public override void Empty()
@@ -65,8 +71,6 @@ namespace NMEA
          TimeDifference3.Empty();
          TimeDifference4.Empty();
          TimeDifference5.Empty();
-
-         Mnemonic = "GLC";
       }
 
       public override bool Parse(Sentence sentence)
@@ -98,9 +102,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

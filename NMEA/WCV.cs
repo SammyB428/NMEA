@@ -43,11 +43,11 @@ namespace NMEA
    {
       public double Velocity;
       public string To;
-      public NMEA.FAAModeIndicator FAAMode;
+      public FAAModeIndicator FAAMode;
 
-      public WCV()
+      public WCV() : base("WCV")
       {
-         Mnemonic = "WCV";
+         Empty();
       }
 
       public override void Empty()
@@ -55,10 +55,8 @@ namespace NMEA
          base.Empty();
 
          Velocity = 0.0D;
-         To = "";
+         To = string.Empty;
          FAAMode = FAAModeIndicator.Unknown;
-
-         Mnemonic = "WCV";
       }
 
       public override bool Parse(Sentence sentence)

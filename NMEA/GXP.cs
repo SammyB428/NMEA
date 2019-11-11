@@ -41,16 +41,14 @@ namespace NMEA
 {
    public class GXP : WayPointLocation
    {
-      public GXP()
+      public GXP() : base("GXP")
       {
-         Mnemonic = "GXP";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
-
-         Mnemonic = "GXP";
       }
    }
 }

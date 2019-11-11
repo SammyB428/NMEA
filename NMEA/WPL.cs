@@ -44,10 +44,10 @@ namespace NMEA
       public LatLong Position;
       public string To;
 
-      public WPL()
+      public WPL() : base("WPL")
       {
          Position = new LatLong();
-         Mnemonic = "WPL";
+         Empty();
       }
 
       public override void Empty()
@@ -55,9 +55,7 @@ namespace NMEA
          base.Empty();
 
          Position.Empty();
-         To = "";
-
-         Mnemonic = "WPL";
+         To = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)

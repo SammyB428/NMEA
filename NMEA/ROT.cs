@@ -44,9 +44,9 @@ namespace NMEA
       public double RateOfTurn;
       public Boolean IsDataValid;
 
-      public ROT()
+      public ROT() : base("ROT")
       {
-         Mnemonic = "ROT";
+         Empty();
       }
 
       public override void Empty()
@@ -55,8 +55,6 @@ namespace NMEA
 
          RateOfTurn = 0.0D;
          IsDataValid = Boolean.Unknown;
-
-         Mnemonic = "ROT";
       }
 
       public override bool Parse(Sentence sentence)

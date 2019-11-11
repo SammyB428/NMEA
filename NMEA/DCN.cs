@@ -76,9 +76,12 @@ namespace NMEA
       public double PositionUncertaintyNauticalMiles;
       public NMEA.FixDataBasis Basis;
 
-      public DCN()
+      public DCN() : base("DCN")
       {
-         Mnemonic = "DCN";
+          Red = new LineOfPosition();
+          Green = new LineOfPosition();
+          Purple = new LineOfPosition();
+          Empty();
       }
 
       public override void Empty()
@@ -94,8 +97,6 @@ namespace NMEA
          PurpleLineNavigationUse = Boolean.Unknown;
          PositionUncertaintyNauticalMiles = 0.0D;
          Basis = FixDataBasis.Unknown;
-
-         Mnemonic = "DCN";
       }
 
       public override bool Parse(Sentence sentence)
@@ -133,9 +134,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

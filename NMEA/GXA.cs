@@ -46,23 +46,20 @@ namespace NMEA
       public string WaypointID;
       public int SatelliteNumber;
 
-      public GXA()
+      public GXA() : base("GXA")
       {
-         UTCTime = new System.DateTime();
          Position = new LatLong();
-         Mnemonic = "GXA";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         UTCTime = new System.DateTime(1980, 1, 6);
+         UTCTime = Response.GPSEpoch;
          Position.Empty();
-         WaypointID = "";
+         WaypointID = string.Empty;
          SatelliteNumber = 0;
-
-         Mnemonic = "GXA";
       }
 
       public override bool Parse(Sentence sentence)

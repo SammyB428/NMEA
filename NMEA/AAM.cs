@@ -44,6 +44,9 @@ namespace NMEA
    /// </summary>
    public class AAM : Response
    {
+        /// <summary>
+        /// True if the arrival circle has been entered, false otherwise
+        /// </summary>
       public NMEA.Boolean IsArrivalCircleEntered;
       public NMEA.Boolean IsPerpendicular;
       public double CircleRadius;
@@ -52,11 +55,14 @@ namespace NMEA
       /// <summary>
       /// The default constructor
       /// </summary>
-       public AAM()
+      public AAM() : base("AAM")
       {
-         Mnemonic = "AAM";
+         Empty();
       }
 
+      /// <summary>
+      /// Returns the object to an initial state
+      /// </summary>
       public override void Empty()
       {
          base.Empty();
@@ -64,9 +70,7 @@ namespace NMEA
          IsArrivalCircleEntered = NMEA.Boolean.Unknown;
          IsPerpendicular = NMEA.Boolean.Unknown;
          CircleRadius = 0.0D;
-         WaypointID = "";
-
-         Mnemonic = "AAM";
+         WaypointID = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -90,9 +94,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

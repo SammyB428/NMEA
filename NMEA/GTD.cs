@@ -47,22 +47,20 @@ namespace NMEA
       public string TimeDifference4;
       public string TimeDifference5;
 
-      public GTD()
+      public GTD() : base("GTD")
       {
-         Mnemonic = "GTD";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
 
-         TimeDifference1 = "";
-         TimeDifference2 = "";
-         TimeDifference3 = "";
-         TimeDifference4 = "";
-         TimeDifference5 = "";
-
-         Mnemonic = "GTD";
+         TimeDifference1 = string.Empty;
+         TimeDifference2 = string.Empty;
+         TimeDifference3 = string.Empty;
+         TimeDifference4 = string.Empty;
+         TimeDifference5 = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -86,9 +84,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

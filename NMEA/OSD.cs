@@ -51,9 +51,9 @@ namespace NMEA
       public double VesselDriftSpeed;
       public string VesselDriftSpeedUnits;
 
-      public OSD()
+      public OSD() : base("OSD")
       {
-         Mnemonic = "OSD";
+         Empty();
       }
 
       public override void Empty()
@@ -68,9 +68,7 @@ namespace NMEA
          VesselSpeedReference = Reference.Unknown;
          VesselSetDegreesTrue = 0.0D;
          VesselDriftSpeed = 0.0D;
-         VesselDriftSpeedUnits = "";
-
-         Mnemonic = "OSD";
+         VesselDriftSpeedUnits = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)

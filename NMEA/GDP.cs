@@ -41,16 +41,14 @@ namespace NMEA
 {
    public class GDP : WayPointLocation
    {
-      public GDP()
+      public GDP() : base("GDP")
       {
-         Mnemonic = "GDP";
+         Empty();
       }
 
       public override void Empty()
       {
          base.Empty();
-
-         Mnemonic = "GDP";
       }
    }
 }

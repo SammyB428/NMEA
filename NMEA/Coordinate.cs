@@ -73,7 +73,7 @@ namespace NMEA
          int degrees = (int) System.Math.Floor( Degrees );
          int minutes = degrees % 100;
 
-         double fractional_minutes = Degrees - degrees;
+         double fractional_minutes = Degrees - (double) degrees;
 
          degrees -= minutes;
          degrees /= 100;
@@ -139,7 +139,7 @@ namespace NMEA
 
       public double Decimal()
       {
-         double return_value = DecimalDegrees();
+         var return_value = DecimalDegrees();
 
          if (Northing == NorthOrSouth.South)
          {
@@ -203,7 +203,7 @@ namespace NMEA
 
       public double Decimal()
       {
-         double return_value = DecimalDegrees();
+         var return_value = DecimalDegrees();
 
          if (Easting == EastOrWest.West)
          {

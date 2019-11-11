@@ -44,9 +44,9 @@ namespace NMEA
       public double Temperature;
       public string UnitOfMeasurement;
 
-      public MTA()
+      public MTA() : base("MTA")
       {
-         Mnemonic = "MTA";
+         Empty();
       }
 
       public override void Empty()
@@ -54,9 +54,7 @@ namespace NMEA
          base.Empty();
 
          Temperature = 0.0D;
-         UnitOfMeasurement = "";
-
-         Mnemonic = "MTA";
+         UnitOfMeasurement = string.Empty;
       }
 
       public override bool Parse(Sentence sentence)
@@ -78,9 +76,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);

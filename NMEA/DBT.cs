@@ -45,9 +45,9 @@ namespace NMEA
       public double DepthMeters;
       public double DepthFathoms;
 
-      public DBT()
+      public DBT() : base("DBT")
       {
-         Mnemonic = "DBT";
+         Empty();
       }
 
       public override void Empty()
@@ -57,8 +57,6 @@ namespace NMEA
          DepthFeet = 0.0D;
          DepthMeters = 0.0D;
          DepthFathoms = 0.0D;
-
-         Mnemonic = "DBT";
       }
 
       public override bool Parse(Sentence sentence)
@@ -84,9 +82,7 @@ namespace NMEA
          ** First we check the checksum...
          */
 
-         Boolean checksum_is_bad = sentence.IsChecksumBad();
-
-         if (checksum_is_bad == Boolean.True)
+         if (sentence.IsChecksumBad() == Boolean.True)
          {
             Empty();
             return (false);
